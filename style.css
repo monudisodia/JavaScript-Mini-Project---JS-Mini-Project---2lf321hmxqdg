@@ -1,0 +1,88 @@
+body{
+    background-color: lightgrey;
+}
+
+.container{
+    background: rgb(64, 145, 156);
+
+    position:absolute;
+    height: 844px;
+    width: 1488px;
+
+    margin: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+
+
+
+#computer-score,#user-score{
+    color: white;
+    position: absolute;
+    font-size: 40px;
+    /* height: 40px; */
+    top: 12px;
+}
+
+#user-score{
+    left: 462px;
+}
+#computer-score{
+    left: 1006px;
+}
+
+
+#center-line{
+    left: 750px;
+    width: 2px;
+    height: 844px;
+    position: absolute;
+    background: #000;
+    
+}
+
+#user-paddle, #computer-paddle{
+
+    position: absolute;
+    background: #fff;
+    height: 140px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+#ball{
+    background: maroon;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+}
+#btn{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+button{
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+
+}
+button:hover{
+    background-color: rgb(71, 134, 71);
+    animation-duration: 5s;
+}
+
+#wins{
+    font-size: 100px;
+    text-align: center;
+    margin-top: 250px;
+    color: rgb(172, 48, 48);
+    font-family: fantasy ;
+    
+}
