@@ -65,6 +65,7 @@ document.body.onkeyup = function(e) {
   }
 
 
+//  --------------------- function to reset game to initial position---------------
 function reset() {
 
     clearInterval(id)
@@ -99,12 +100,14 @@ function gameLoop() {
 
     setTimeout(() => {
         id = setInterval(() => {
-
+          //  --------------------- function to count computer  score---------------
             if (marginLeft(ball)<-0 ) {
                 document.querySelector("#computer-score").innerHTML = Number(document.querySelector("#computer-score").innerHTML) + 1
                 reset()
                 return
             }
+
+            //  --------------------- function to count user score---------------
             if (marginLeft(ball) > 1470) {
                 document.querySelector("#user-score").innerHTML = Number(document.querySelector("#user-score").innerHTML) + 1
                 reset()
@@ -115,6 +118,8 @@ function gameLoop() {
                 Vy = -Vy
             }
 
+
+            //  --------------------- function to set angle for ball with user and computer paddle---------------
             let paddle  = (marginLeft(ball)+10)<744 ? userPaddle :computerPaddle
 
             if(collisionDetected(paddle)){
@@ -136,7 +141,7 @@ function gameLoop() {
                 Vy= V*Math.sin(angle)
             }
 
-
+        //  --------------------- setting the level for computer paddle---------------
             let computerLevel= 0.05
             computerPaddle.style.marginTop=`${marginTop(computerPaddle)+((ball.centerY - (marginTop(computerPaddle)+70))) * computerLevel}px`
 
@@ -149,7 +154,7 @@ function gameLoop() {
 
          
  
-
+         //  --------------------- setting the movement and speed for user paddle---------------
             if (arrow_up && marginTop(userPaddle) >0) {
                 userPaddle.style.marginTop = `${marginTop(userPaddle) - 4}px`
             }
@@ -157,7 +162,7 @@ function gameLoop() {
                 userPaddle.style.marginTop = `${marginTop(userPaddle) + 4}px`
             }
 
-
+//  --------------------- setting the movement  position for computer paddle ---------------
             if(marginTop(computerPaddle)<0){
                 computerPaddle.style.marginTop= '0px'
             }
@@ -171,6 +176,7 @@ function gameLoop() {
     }, 500)
 }
 
+//  --------------------- function to detect collision of ball with paddle---------------
 function collisionDetected(paddle){
 
     ball.top=marginTop(ball)
@@ -189,7 +195,6 @@ function collisionDetected(paddle){
 
     return ball.left<paddle.right && ball.top < paddle.bottom && ball.right >paddle.left && ball.bottom > paddle.top
 }
-
 
 function marginTop(el) {
     return Number(el.style.marginTop.split('p')[0])
